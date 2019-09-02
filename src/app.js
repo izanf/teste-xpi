@@ -1,5 +1,14 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import GlobalStyle from 'constants/globalStyle';
 
-const App = () => <div className="asdadadasd">Hello world!</div>;
+import MainScreen from 'containers/MainScreen';
 
-export default App;
+const Routes = () => (
+  <BrowserRouter>
+    <GlobalStyle />
+    <Route exact path="/" component={MainScreen} />
+  </BrowserRouter>
+);
+
+export default Routes;

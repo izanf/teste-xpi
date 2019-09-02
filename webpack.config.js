@@ -32,5 +32,13 @@ module.exports = {
     compress: true,
     port: 3000,
     stats: 'minimal'
+  },
+  resolve: {
+    alias: {
+      assets: path.resolve(__dirname, './src/assets'),
+      components: path.resolve(__dirname, './src/components'),
+      constants: path.resolve(__dirname, './src/constants'),
+      containers: path.resolve(__dirname, './src/containers'),
+    }
   }
 };
