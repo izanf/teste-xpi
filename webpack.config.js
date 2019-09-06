@@ -38,7 +38,8 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 3000,
-    stats: 'minimal'
+    stats: 'minimal',
+    open: true
   },
   resolve: {
     alias: {
@@ -46,6 +47,7 @@ module.exports = {
       components: path.resolve(__dirname, './src/components'),
       constants: path.resolve(__dirname, './src/constants'),
       containers: path.resolve(__dirname, './src/containers'),
+      store: path.resolve(__dirname, './src/store'),
     }
   }
 };
