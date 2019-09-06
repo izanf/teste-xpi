@@ -27,7 +27,9 @@ transition: all .1s linear;
 }
 `;
 
-const SearchInput = ({ label, placeholder, value, onChange }) => (
+const SearchInput = ({
+  label, placeholder, value, onChange
+}) => (
   <Container>
     <Label>{label}</Label>
     <Input
