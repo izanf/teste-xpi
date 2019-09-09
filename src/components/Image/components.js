@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Figure = styled.figure`
 width: ${props => props.size};
-height: ${props => props.size};
 `;
 
 export const Img = styled.img`

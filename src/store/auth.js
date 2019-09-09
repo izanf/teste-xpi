@@ -26,6 +26,14 @@ export const authReducer = (state = initialState, action = {}) => {
 
 function* login() {
   try {
+    const response = yield fetch('http://localhost:8888/login', {
+      // mode: 'no-cors',
+      // headers: {
+      //   'Access-Control-Allow-Origin': 'http://localhost:3000'
+      // }
+    });
+
+    console.log('responsew', response);
     yield put({ type: Types.LOGIN_SUCCESS });
   } catch (err) {
     yield put({ type: Types.LOGIN_FAILURE });

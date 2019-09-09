@@ -13,8 +13,8 @@ import { albumsReducer, albumsSaga } from 'store/albums';
 const sagaMiddleware = createSagaMiddleware();
 
 const reducers = combineReducers({
-  authReducer,
-  albumsReducer
+  auth: authReducer,
+  albums: albumsReducer
 });
 
 function* sagas() {

@@ -5,13 +5,11 @@ import {
   Container, Title, ArtistName
 } from './components';
 
-const image = 'https://pbs.twimg.com/media/DZ68ZKGWsAAAxMp.jpg';
-
-const Card = () => (
+const Card = ({ data }) => (
   <Container>
-    <Image src={image} size="100%" />
-    <Title>Nome do álbum</Title>
-    <ArtistName>Nome do artista</ArtistName>
+    <Image src={data.images[0].url} size="100%" />
+    <Title>{data.name}</Title>
+    <ArtistName>{data.artists[0].name}</ArtistName>
   </Container>
 );
 

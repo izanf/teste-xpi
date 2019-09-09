@@ -16,5 +16,5 @@ font-size: var(--medium-size);
 font-weight: normal;
 text-align: center;
 color: var(--nobel-color);
-margin-top: .3rem;
+margin-top: .2rem;
 `;

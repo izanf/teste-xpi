@@ -1,4 +1,5 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
+import spotifyService from 'services/spotifyService';
 
 const Types = {
   GET_ALBUM: 'albums/GET_ALBUM',
@@ -8,26 +9,30 @@ const Types = {
 
 const initialState = {
   loading: false,
-  userData: {},
+  data: [],
+  current: {}
 };
 
 export const albumsReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case Types.GET_ALBUM:
       return { ...state, loading: true };
+    case Types.GET_ALBUM_SUCCESS:
+      return { ...state, loading: false, current: action.payload };
     default:
       return state;
   }
 };
 
-function* getAlbum() {
+function* getAlbum({ search }) {
   try {
-    yield put({ type: Types.GET_ALBUM_SUCCESS });
+    const response = yield spotifyService.fetchAlbums(`artist:${search}`);
+    yield put({ type: Types.GET_ALBUM_SUCCESS, payload: response.albums });
   } catch (err) {
-    yield put({ type: Types.GET_ALBUM_FAILURE });
+    console.log('err', err);
   }
 }
 
 export function* albumsSaga() {
-  yield takeEvery(Types.GET_ALBUM, getAlbum);
+  yield takeLatest(Types.GET_ALBUM, getAlbum);
 }

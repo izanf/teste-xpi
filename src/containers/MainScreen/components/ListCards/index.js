@@ -18,16 +18,11 @@ color: white;
 margin: 5rem 0 2rem;
 `;
 
-const ListCards = ({ search = '' }) => (
+const ListCards = ({ search, data }) => (
   <Container>
     <Title>{`Resultados encontrados para "${search}"`}</Title>
     <Content>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {data.map(item => <Card data={item} />)}
     </Content>
   </Container>
 );
